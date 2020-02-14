@@ -11,4 +11,10 @@ describe('Test element actions', function() {
         browser.url('/')
         expect(internetPage.getSpecificElementText(1)).equals('A/B Testing')
     })
+
+    it('should click checkbox', () => {
+        internetPage.clickLink(6)
+        internetPage.clickCheckbox(1)
+        expect(internetPage.checkboxes(1).isSelected()).equals(true)
+    })
 })
