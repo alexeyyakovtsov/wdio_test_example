@@ -17,4 +17,28 @@ describe('Test element actions', function() {
         internetPage.clickCheckbox(1)
         expect(internetPage.checkboxes(1).isSelected()).equals(true)
     })
+
+    it('should unckeck checkbox',() => {
+        internetPage.clickCheckbox(1)
+        expect(internetPage.checkboxes(1).isSelected()).equals(false)
+    })
+
+    it('should enter username',() => {
+        browser.url(`${browser.options.baseUrl}/login`)
+        internetPage.enterUsername("Alexey")
+        assert.equal(`Alexey`, internetPage.username.getValue())
+    })
+
+    it('should enter password',() => {
+        browser.url(`${browser.options.baseUrl}/login`)
+        internetPage.enterPassword('Password')
+        assert.equal('Password', internetPage.password.getValue())
+    })
+
+    it('should clear value',() => {
+        internetPage.username.click()
+        internetPage.username.clearValue()
+
+        assert.equal('', internetPage.username.getValue())
+    })
 })
