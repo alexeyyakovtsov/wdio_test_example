@@ -13,6 +13,13 @@ class Internet {
   get hereLink() { return $('.example a') }
   get iframeBody() { return $('#tinymce') }
   get iframe() { return $('#mceu_27 #mce_0_ifr') }
+  get columnA() { return $('#column-a') }
+  get columnB() { return $('#column-b') }
+  get columnAHeader() { return $('#column-a header') }
+  get columnBHeader() { return $('#column-b header') }
+  get draggable() { return $('#draggable') }
+  get droppable() { return $('#droppable') }
+  get droppableParagraph() { return $('#droppable p') }
 
   specificChildElement(index) { return this.parent.$(`li:nth-child(${index})`) }
   checkboxes(index) { return $(`#checkboxes input:nth-child(${index})`) }
@@ -145,6 +152,23 @@ class Internet {
       this.iframeBody.clearValue()
       this.iframeBody.click()
       this.iframeBody.keys(text)
+   }
+   
+   /**
+    * Drag and drop
+    */
+   dragColumnAToColumnB() {
+      this.columnA.waitForDisplayed()
+      this.columnB.waitForDisplayed()
+
+      this.columnA.dragAndDrop(this.columnB)
+   }
+/**
+ * Drab and drop draggable
+ */
+   dragDraggableToDroppable() {
+     this.draggable.waitForDisplayed()
+     this.draggable.dragAndDrop(this.droppable)
    }
 }
 
