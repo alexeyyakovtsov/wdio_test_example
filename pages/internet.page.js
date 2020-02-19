@@ -20,6 +20,10 @@ class Internet {
   get draggable() { return $('#draggable') }
   get droppable() { return $('#droppable') }
   get droppableParagraph() { return $('#droppable p') }
+  get dropdownMenu() { return $('#dropdown') }
+  get dropdownMenuOption1() { return $('#dropdown option:nth-child(2)') }
+  get dropdownMenuOption2() { return $('#dropdown option:nth-child(3)') }
+
 
   specificChildElement(index) { return this.parent.$(`li:nth-child(${index})`) }
   checkboxes(index) { return $(`#checkboxes input:nth-child(${index})`) }
@@ -170,6 +174,34 @@ class Internet {
      this.draggable.waitForDisplayed()
      this.draggable.dragAndDrop(this.droppable)
    }
+
+   clickDropdownMenu() {
+     this.dropdownMenu.waitForDisplayed()
+     this.dropdownMenu.click()
+   }
+
+   clickDropdownMenuOption1() {
+     this.dropdownMenuOption1.waitForDisplayed()
+     this.dropdownMenuOption1.click()
+   }
+
+   clickDropdownMenuOption2() {
+    this.dropdownMenuOption2.waitForDisplayed()
+    this.dropdownMenuOption2.click()
+  }
+
+  javascriptAlertButtun(index) {
+    return $(`.example li:nth-child(${index}) button`)
+  }
+
+  /**
+   * Click the specified javascript alert button
+   * @param {Number} index the index of the element
+   */
+  clickJavaSciptAlertButton(index) {
+    this.javascriptAlertButtun(index).waitForDisplayed()
+    this.javascriptAlertButtun(index).click()
+  }
 }
 
 module.exports = new Internet()
