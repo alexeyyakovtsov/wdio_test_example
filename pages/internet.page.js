@@ -1,5 +1,5 @@
 class Internet {
-  get pageHeader() { return $('.heading') }
+  get pageHeader() { return $('h1 .heading') }
   get subHeading() { return $('h2') }
   get pageFooter() { return $('#page-footer') }
   get parent() { return $('ul') }
@@ -23,6 +23,10 @@ class Internet {
   get dropdownMenu() { return $('#dropdown') }
   get dropdownMenuOption1() { return $('#dropdown option:nth-child(2)') }
   get dropdownMenuOption2() { return $('#dropdown option:nth-child(3)') }
+  get enableButton() { return $('#input-example button') }
+  get inputEnabledField() { return $('#input-example input') }
+  get exampleButton() { return $('.example button') }
+  get pageButton() { return $('#checkbox-example button') }
 
 
   specificChildElement(index) { return this.parent.$(`li:nth-child(${index})`) }
@@ -201,6 +205,34 @@ class Internet {
   clickJavaSciptAlertButton(index) {
     this.javascriptAlertButtun(index).waitForDisplayed()
     this.javascriptAlertButtun(index).click()
+  }
+
+  clickEnableButton() {
+    this.enableButton.waitForDisplayed()
+    this.enableButton.click()
+  }
+
+  /**
+   * 
+   * @param {Number} index index of the element delete button
+   */
+  deleteButton(index) {
+    return $(`#elements button:nth-child(${index})`)
+  }
+
+  clickExampleButton() {
+    this.exampleButton.waitForDisplayed()
+    this.exampleButton.click()
+  }
+
+  clickDeleteButton(index) {
+    this.deleteButton(index).waitForDisplayed()
+    this.deleteButton(index).click()
+  }
+
+  clickPageButton() {
+    this.pageButton.waitForDisplayed()
+    this.pageButton.click()
   }
 }
 
