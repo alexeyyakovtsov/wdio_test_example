@@ -1,4 +1,4 @@
-internetPage = require('../pages/internet.page')
+internetPage = require('../../pages/internet.page')
 
 describe('WaitUntil',function() {
     it('should wait until the button text changes to Add', () => {

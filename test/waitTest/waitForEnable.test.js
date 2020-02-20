@@ -1,4 +1,4 @@
-internetPage = require('../pages/internet.page')
+internetPage = require('../../pages/internet.page')
 
 describe('Wait for Enabled',function() {
   it('should wait for the input field to be enabled', () => {

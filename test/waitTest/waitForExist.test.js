@@ -1,4 +1,4 @@
-internetPage = require('../pages/internet.page')
+internetPage = require('../../pages/internet.page')
 
 describe('Wait For Exist',function() {
     it('should wait until the delete button exists', () => {

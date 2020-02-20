@@ -1,3 +1,12 @@
+//Setup for running environment tests
+const url = require('./data/urls')
+const ENV = process.env.ENV
+
+if (!ENV || !['qa', 'dev', 'staging'].includes(ENV)) {
+    console.log(' Please use the following format when running the test script: ENV=qa|dev|staging')
+    process.exit()
+}
+
 exports.config = {
     //
     // ====================
@@ -22,6 +31,21 @@ exports.config = {
     specs: [
         './test/**/*.js'
     ],
+
+    suites: {
+        actions: [
+            './test/actions/*.js'
+        ],
+
+        switchTest: [
+            './test/switchTest/*.js'
+        ],
+
+        waitTest: [
+            './test/waitTest/*.js'
+        ]
+    },
+    
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -91,7 +115,9 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://the-internet.herokuapp.com',
+
+    //Setting the base url to run environment tests
+    baseUrl: url[process.env.ENV],
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

@@ -1,4 +1,4 @@
-internetPage = require('../pages/internet.page')
+internetPage = require('../../pages/internet.page')
 
 describe('Should switch to Iframe', function() {
     it('Should switch to Iframe', () => {

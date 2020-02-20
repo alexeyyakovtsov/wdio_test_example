@@ -1,4 +1,4 @@
-internetPage = require('../pages/internet.page')
+internetPage = require('../../pages/internet.page')
 
 describe('Swith Window', function() {
     it('Should switch to the next window',() => {
