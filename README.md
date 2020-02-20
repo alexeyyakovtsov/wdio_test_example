@@ -11,7 +11,7 @@
 * Run test for QA environment - ENV=qa npm run test
 
 ## Project structure
-* Data folder - test data
+* Data folder - test data and urls
 * Pages folder - page object
 * Test folder - test folder
 * packege.json - settings file
